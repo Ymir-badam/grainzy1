@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% block title %}Item tracking{% endblock %}
+{% block content %}
+<div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
+    <div class="col-span-1">
+       
+
+        <hr class="my-6">
+
+        <p class="font-semibold">Item tracking</p>
+
+        <ul>
+            {% for i in Payed_items %}
+            <div>
+            
+                    <h1>{{ i.product }}</h1>
+                    <h1>Payment done at {{ i.created_at }}</h1>
+                    
+                    {% if i.designComp  == True %}
+                        <h1>Design is Completed</h1>
+                    {% else %}
+                    <h1>Design is Pending</h1>
+                {% endif %}
+                {% if i.pickedUp  == True %}
+                        <h1>Order is picked up</h1>
+                    {% else %}
+                    <h1>Order not yet Picked Up</h1>
+                {% endif %}
+                {% if i.travelling  == True %}
+                        <h1>Travelling  completed</h1>
+                    {% else %}
+                    <h1>Traveling is not completed</h1>
+                {% endif %}
+                {% if i.deliveryDone  == True %}
+                        <h1>Delivery is done</h1>
+                    {% else %}
+                    <h1>Delivery pending</h1>
+                {% endif %}
+            <br>
+                </div>
+            {% endfor %}
+        </ul>
+
+       
+{% endblock %}

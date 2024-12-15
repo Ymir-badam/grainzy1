@@ -1,0 +1,10 @@
+
+{% autoescape off %}
+Verify your email address
+
+This email address was recently used to log into an application powered by MakeMyGift. If this was you, please verify your email address by clicking the following link:
+
+http://{{ domain }}{% url 'core:activate' uidb64=uid token=token %}
+
+If this was not you, you can safely delete this email.
+{% endautoescape %}

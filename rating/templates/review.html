@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Review Form</title>
+</head>
+<body>
+  <h1>Review Form</h1>
+  
+  <form action="{% url 'addRev' %}" method="POST">
+    {% csrf_token %}
+    
+    <label for="product">Product:</label>
+    <input type="text" id="product" name="product" required>
+    
+    <label for="rating">Rating:</label>
+    <select id="rating" name="rating" required>
+      <option value="1">1 Star</option>
+      <option value="2">2 Stars</option>
+      <option value="3">3 Stars</option>
+      <option value="4">4 Stars</option>
+      <option value="5">5 Stars</option>
+    </select>
+    
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment" required></textarea>
+    
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

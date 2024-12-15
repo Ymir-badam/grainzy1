@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Inbox{% endblock %}
+
+{% block content %}
+<h1 class="mb-6 text-3xl">Inbox</h1>
+{% for chat in thread.chatmessage_thread.all %}
+{% if chat.user == user %}
+    <div class="d-flex mb-4 replied">
+        <div class="msg_cotainer_send">
+            {{ chat.message }}
+            <span class="msg_time_send">{{ chat.timestamp|date:"d D" }}, {{ chat.timestamp|time:"H:i" }}</span>
+        </div>
+    
+</div>
+{% else %}
+    <div class="d-flex mb-4 received">
+    
+    <div class="msg_cotainer">
+        {{ chat.message }}
+        <span class="msg_time">{{ chat.timestamp|date:"d D" }}, {{ chat.timestamp|time:"H:i" }}</span>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+
+    
+
+    {% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Items{% endblock %}
+
+{% block content %}
+    <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
+        <div class="col-span-1">
+           
+
+            <hr class="my-6">
+
+            <p class="font-semibold">Items</p>
+
+            <ul>
+                {% for category in categories %}
+                {% if request.user == category.cart.user %}
+                        <h1>{{ category.product }}</h1>
+                
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div id="go_to">
+            
+            <a href="/items"> 
+                <button type="button">to items</button> 
+            </a>
+        </div>
+           
+{% endblock %}
